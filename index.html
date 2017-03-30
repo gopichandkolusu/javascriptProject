@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>SJ Website</title>
+    <link rel="stylesheet" type="text/css" href="home.css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dustjs-linkedin/2.7.5/dust-core.min.js">
+    </script>
+    <script src="js/customers.js"></script>
+</head>
+
+<body>
+    <div id="container">
+        <a href="#" onclick="loadpage('customersurl');">Customers</a>
+        <a href="#">Orders</a>
+        <a href="#">Login</a>
+        <a href="#">Sign up</a>
+
+    </div>
+    <hr>
+<div id="m"></div>
+
+</body>
+
+<script type="text/javascript">
+
+function loadpage(url) {
+    console.log("inside");
+    var xhr = new XMLHttpRequest();
+    console.log(xhr);
+    xhr.onreadystatechange = function() {
+        console.log("inside3");
+        if (xhr.readyState == 4 && xhr.status == 200) {
+            console.log("nextstep");
+            var serverData = xhr.responseText;
+            if(url == "customersurl") {
+                var jsonObj = {};
+                console.log("hello");
+                // var jsonObj = JSON.parse(serverData);
+                dust.render('customers', jsonObj, function(err, out) {
+                    console.log(err);
+                    console.log(out);
+                    console.log("hi");
+                    document.getElementById('m').innerHTML = out;
+                });
+                } else {
+                    document.getElementById('m').innerHTML = serverData;
+            }
+        }
+    }
+        xhr.open("GET", url, true);
+        xhr.send();
+
+}
+</script>
+
+</html>
