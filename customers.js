@@ -1,0 +1,1 @@
+(function(dust){dust.register("customers",body_0);function body_0(chk,ctx){return chk.w("<a href=\"\">List View</a><a href=\"\">Card View</a><a href=\"\">Add customers</a>");}body_0.__dustBody=!0;return body_0}(dust));
