@@ -36,7 +36,6 @@ function loadpage(url) {
             var serverData = xhr.responseText;
             if(url == "customersurl") {
                 var jsonObj = {};
-                console.log("hello");
                 // var jsonObj = JSON.parse(serverData);
                 dust.render('customers', jsonObj, function(err, out) {
                     console.log(err);
