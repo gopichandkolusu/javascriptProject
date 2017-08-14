@@ -34,6 +34,7 @@ function loadpage(url) {
         if (xhr.readyState == 4 && xhr.status == 200) {
             console.log("nextstep");
             var serverData = xhr.responseText;
+            console.log(serverData);
             if(url == "customersurl") {
                 var jsonObj = {};
                 // var jsonObj = JSON.parse(serverData);
